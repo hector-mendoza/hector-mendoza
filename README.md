@@ -33,8 +33,7 @@ Senior Web Developer, 10+ years of experience building fast, accessible web prod
 | Project | Description |
 |---|---|
 | [**portfolio**](https://github.com/hector-mendoza/portfolio) | Personal portfolio site |
-| [**coinpulse**](https://github.com/hector-mendoza/coinpulse) | Crypto screener app with a built-in high-frequency terminal & dashboard |
-| [**my-tanstack-app**](https://github.com/hector-mendoza/my-tanstack-app) | TanStack Start project with Neon, Drizzle, Sentry, and Better Auth |
+| [**giphynator**](https://github.com/hector-mendoza/giphynator) | Minimalist random-GIF discovery app built on the Giphy API (Next.js + TypeScript) |
 | [**vibe-theme**](https://github.com/hector-mendoza/vibe-theme) | VS Code/Cursor extension with 7 dark themes inspired by 2026 design trends |
 | [**vibe-theme-web**](https://github.com/hector-mendoza/vibe-theme-web) | Landing page for Vibe Theme with live theme switching and scroll-driven animations |
 | [**emoji-day**](https://github.com/hector-mendoza/emoji-day) | Playful daily mood-tracker web app, zero dependencies, i18n (ES/EN/PT) |
