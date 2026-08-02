@@ -35,11 +35,13 @@ Senior Web Developer, 10+ years of experience building fast, accessible web prod
 | [**portfolio**](https://github.com/hector-mendoza/portfolio) | Personal portfolio site |
 | [**coinpulse**](https://github.com/hector-mendoza/coinpulse) | Crypto screener app with a built-in high-frequency terminal & dashboard |
 | [**my-tanstack-app**](https://github.com/hector-mendoza/my-tanstack-app) | TanStack Start project with Neon, Drizzle, Sentry, and Better Auth |
-| [**skild**](https://github.com/hector-mendoza/skild) | Platform for creating, sharing, and discovering agentic intelligence |
-| [**gsap_cocktails**](https://github.com/hector-mendoza/gsap_cocktails) | GSAP-driven animated landing page |
-| [**agent-ready**](https://github.com/hector-mendoza/agent-ready) | Tooling and experiments around AI-agent-ready codebases |
+| [**vibe-theme**](https://github.com/hector-mendoza/vibe-theme) | VS Code/Cursor extension with 7 dark themes inspired by 2026 design trends |
+| [**vibe-theme-web**](https://github.com/hector-mendoza/vibe-theme-web) | Landing page for Vibe Theme with live theme switching and scroll-driven animations |
+| [**emoji-day**](https://github.com/hector-mendoza/emoji-day) | Playful daily mood-tracker web app, zero dependencies, i18n (ES/EN/PT) |
+| [**agent-ready**](https://github.com/hector-mendoza/agent-ready) | Makes web apps readable by AI agents — auto-generates robots.txt, llms.txt, sitemaps & more |
 
 ## Connect
 
 [![Website](https://img.shields.io/badge/Website-hectormendoza.me-000000?style=flat-square&logo=googlechrome&logoColor=white)](https://hectormendoza.me)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-hector--mendoza--m-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hector-mendoza-m/)
 [![Email](https://img.shields.io/badge/Email-hey%40hectormendoza.me-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:hey@hectormendoza.me)
