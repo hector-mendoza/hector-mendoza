@@ -42,4 +42,4 @@ Senior Web Developer, 10+ years of experience building fast, accessible web prod
 ## Connect
 
 [![Website](https://img.shields.io/badge/Website-hectormendoza.me-000000?style=flat-square&logo=googlechrome&logoColor=white)](https://hectormendoza.me)
-[![Email](https://img.shields.io/badge/Email-hec1702%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:hec1702@gmail.com)
+[![Email](https://img.shields.io/badge/Email-hey%40hectormendoza.me-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:hey@hectormendoza.me)
