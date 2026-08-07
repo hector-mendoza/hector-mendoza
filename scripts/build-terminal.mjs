@@ -49,41 +49,42 @@ const USER = PROFILE.host
   : PROFILE.login.toLowerCase();
 
 // ─────────────────────────────────────────────────────────────────────
-// Nord palettes (Polar Night / Snow Storm) — cooler than Tokyo Night
+// Modern zinc + emerald (Geist / Linear–inspired). Near-black surfaces,
+// tight neutrals, one sharp accent — less pastel than Nord/Tokyo Night.
 // ─────────────────────────────────────────────────────────────────────
 
 const THEMES = {
   dark: {
     name: 'dark',
-    bg: '#2e3440',
-    chrome: '#3b4252',
-    border: '#434c5e',
-    fg: '#eceff4',
-    dim: '#7b88a1',
-    green: '#a3be8c',
-    cyan: '#88c0d0',
-    blue: '#81a1c1',
-    purple: '#b48ead',
-    yellow: '#ebcb8b',
-    orange: '#d08770',
-    dot: ['#bf616a', '#ebcb8b', '#a3be8c'],
-    ramp: ['#3b4252', '#4c566a', '#5e81ac', '#88c0d0', '#8fbcbb'],
+    bg: '#09090b',
+    chrome: '#18181b',
+    border: '#27272a',
+    fg: '#fafafa',
+    dim: '#71717a',
+    green: '#4ade80',
+    cyan: '#2dd4bf',
+    blue: '#38bdf8',
+    purple: '#2dd4bf', // cursor / accent — teal, not violet
+    yellow: '#fbbf24',
+    orange: '#fb923c',
+    dot: ['#f43f5e', '#fbbf24', '#4ade80'],
+    ramp: ['#27272a', '#3f3f46', '#0d9488', '#14b8a6', '#2dd4bf'],
   },
   light: {
     name: 'light',
-    bg: '#eceff4',
-    chrome: '#e5e9f0',
-    border: '#d8dee9',
-    fg: '#2e3440',
-    dim: '#4c566a',
-    green: '#687d5e',
-    cyan: '#5e81ac',
-    blue: '#5e81ac',
-    purple: '#b48ead',
-    yellow: '#b48a4c',
-    orange: '#d08770',
-    dot: ['#bf616a', '#b48a4c', '#687d5e'],
-    ramp: ['#d8dee9', '#a3b1c6', '#81a1c1', '#5e81ac', '#8fbcbb'],
+    bg: '#fafafa',
+    chrome: '#f4f4f5',
+    border: '#e4e4e7',
+    fg: '#18181b',
+    dim: '#71717a',
+    green: '#16a34a',
+    cyan: '#0f766e',
+    blue: '#0284c7',
+    purple: '#0d9488',
+    yellow: '#ca8a04',
+    orange: '#ea580c',
+    dot: ['#e11d48', '#ca8a04', '#16a34a'],
+    ramp: ['#e4e4e7', '#a1a1aa', '#0f766e', '#0d9488', '#14b8a6'],
   },
 };
 
