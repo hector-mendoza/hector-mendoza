@@ -1,32 +1,26 @@
-# Hector Mendoza
+<div align="center">
 
-Senior Web Developer, 10+ years of experience building fast, accessible web products — with a particular love for **Next.js**, **WordPress**, and **Shopify**.
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://raw.githubusercontent.com/hector-mendoza/hector-mendoza/main/assets/terminal-dark.svg"
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="https://raw.githubusercontent.com/hector-mendoza/hector-mendoza/main/assets/terminal-light.svg"
+  />
+  <img
+    alt="Terminal showing the profile and contribution history of Hector Mendoza"
+    src="https://raw.githubusercontent.com/hector-mendoza/hector-mendoza/main/assets/terminal-dark.svg"
+    width="820"
+  />
+</picture>
+
+</div>
+
+---
 
 📍 Mexico · 💼 [UrVenue](https://www.urvenue.com) · 🌐 [hectormendoza.me](https://hectormendoza.me)
-
-## Tech Stack
-
-**Languages & Core**
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-
-**Frameworks & Platforms**
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![TanStack](https://img.shields.io/badge/TanStack-FF4154?style=flat-square&logo=reactquery&logoColor=white)
-![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)
-![Shopify](https://img.shields.io/badge/Shopify-7AB55C?style=flat-square&logo=shopify&logoColor=white)
-
-**Data & Infra**
-![Drizzle](https://img.shields.io/badge/Drizzle-C5F74F?style=flat-square&logo=drizzle&logoColor=black)
-![Neon](https://img.shields.io/badge/Neon-00E599?style=flat-square&logo=neon&logoColor=black)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-
-**Animation & Graphics**
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
 
 ## Featured Projects
 
