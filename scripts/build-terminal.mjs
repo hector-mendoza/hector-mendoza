@@ -30,6 +30,15 @@ const PROFILE = {
     ['data', 'drizzle · neon · postgresql'],
     ['focus', 'fast, accessible web products'],
   ],
+  // Shown by `ls ~/projects` — keep names short so lines fit the terminal.
+  projects: [
+    ['portfolio', 'personal site'],
+    ['giphynator', 'random GIF discovery (Next.js)'],
+    ['vibe-theme', '7 dark themes for VS Code/Cursor'],
+    ['vibe-theme-web', 'landing with live theme switching'],
+    ['emoji-day', 'daily mood tracker · ES/EN/PT'],
+    ['agent-ready', 'robots.txt, llms.txt & sitemaps'],
+  ],
 };
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -40,39 +49,41 @@ const USER = PROFILE.host
   : PROFILE.login.toLowerCase();
 
 // ─────────────────────────────────────────────────────────────────────
-// Tokyo Night palettes
+// Nord palettes (Polar Night / Snow Storm) — cooler than Tokyo Night
 // ─────────────────────────────────────────────────────────────────────
 
 const THEMES = {
   dark: {
     name: 'dark',
-    bg: '#1a1b26',
-    chrome: '#16161e',
-    border: '#292e42',
-    fg: '#c0caf5',
-    dim: '#565f89',
-    green: '#9ece6a',
-    cyan: '#7dcfff',
-    blue: '#7aa2f7',
-    purple: '#bb9af7',
-    yellow: '#e0af68',
-    dot: ['#f7768e', '#e0af68', '#9ece6a'],
-    ramp: ['#292e42', '#3b5b8c', '#4f8ac4', '#7dcfff', '#bb9af7'],
+    bg: '#2e3440',
+    chrome: '#3b4252',
+    border: '#434c5e',
+    fg: '#eceff4',
+    dim: '#7b88a1',
+    green: '#a3be8c',
+    cyan: '#88c0d0',
+    blue: '#81a1c1',
+    purple: '#b48ead',
+    yellow: '#ebcb8b',
+    orange: '#d08770',
+    dot: ['#bf616a', '#ebcb8b', '#a3be8c'],
+    ramp: ['#3b4252', '#4c566a', '#5e81ac', '#88c0d0', '#8fbcbb'],
   },
   light: {
     name: 'light',
-    bg: '#e1e2e7',
-    chrome: '#d4d6e1',
-    border: '#c4c8da',
-    fg: '#3760bf',
-    dim: '#848cb5',
-    green: '#587539',
-    cyan: '#007197',
-    blue: '#2e7de9',
-    purple: '#9854f1',
-    yellow: '#8c6c3e',
-    dot: ['#f52a65', '#8c6c3e', '#587539'],
-    ramp: ['#c4c8da', '#a3bdf0', '#6f9fe8', '#2e7de9', '#9854f1'],
+    bg: '#eceff4',
+    chrome: '#e5e9f0',
+    border: '#d8dee9',
+    fg: '#2e3440',
+    dim: '#4c566a',
+    green: '#687d5e',
+    cyan: '#5e81ac',
+    blue: '#5e81ac',
+    purple: '#b48ead',
+    yellow: '#b48a4c',
+    orange: '#d08770',
+    dot: ['#bf616a', '#b48a4c', '#687d5e'],
+    ramp: ['#d8dee9', '#a3b1c6', '#81a1c1', '#5e81ac', '#8fbcbb'],
   },
 };
 
@@ -88,7 +99,7 @@ const LH = 21;          // line height
 const PAD_X = 24;       // horizontal inner padding
 const PAD_Y = 20;       // vertical inner padding
 const CHROME = 36;      // title bar height
-const GRAPH_H = 54;     // bar height
+const GRAPH_H = 64;     // bar height
 const AXIS_H = 16;      // month axis height
 
 const FONT =
@@ -102,7 +113,8 @@ const T = {
   enter: 0.34,     // pause after hitting enter
   perOut: 0.09,    // each output line
   blank: 0.14,     // blank line
-  perBar: 0.026,   // each bar of the graph
+  perBar: 0.034,   // each bar of the graph (stagger)
+  barGrow: 0.55,   // how long a single bar grows
 };
 
 // ─────────────────────────────────────────────────────────────────────
@@ -329,7 +341,7 @@ class Session {
     return this;
   }
 
-  /** The graph: one bar per week, growing from left to right. */
+  /** The graph: one bar per week, growing left→right with ease-out + fade. */
   graph(weeks) {
     const { theme } = this;
     const inner = W - PAD_X * 2;
@@ -338,19 +350,60 @@ class Session {
     const base = this.y + GRAPH_H - FS;
     const max = Math.max(1, ...weeks.map((w) => w.total));
     const start = this.t;
+    const ease = '0.22 0.61 0.36 1'; // cubic ease-out
+    const grow = T.barGrow;
+
+    // Soft baseline so the chart reads as a surface before bars rise.
+    this.parts.push(
+      `<g opacity="0"><set attributeName="opacity" to="1" begin="${n(start)}s"/>` +
+        `<line x1="${PAD_X}" y1="${n(base)}" x2="${n(W - PAD_X)}" y2="${n(base)}" ` +
+        `stroke="${theme.border}" stroke-width="1"/>` +
+        `</g>`,
+    );
 
     weeks.forEach((week, i) => {
       const x = PAD_X + i * (bw + gap);
       // Square-root scale, so one peak week does not flatten all the others.
       const h = week.total === 0 ? 2.5 : Math.max(5, Math.sqrt(week.total / max) * GRAPH_H);
       const begin = n(start + i * T.perBar);
+      const color = theme.ramp[week.level];
+      const pulse =
+        week.level >= 3
+          ? `<animate attributeName="opacity" values="1;0.55;1" begin="${n(begin + grow)}s" ` +
+            `dur="2.4s" repeatCount="indefinite"/>`
+          : '';
+
       this.parts.push(
-        `<rect x="${n(x)}" width="${n(bw)}" rx="1.4" fill="${theme.ramp[week.level]}" y="${n(base)}" height="0">` +
-          `<animate attributeName="y" from="${n(base)}" to="${n(base - h)}" begin="${begin}s" dur="0.42s" fill="freeze"/>` +
-          `<animate attributeName="height" from="0" to="${n(h)}" begin="${begin}s" dur="0.42s" fill="freeze"/>` +
+        `<rect class="bar" x="${n(x)}" width="${n(bw)}" rx="1.6" fill="${color}" ` +
+          `y="${n(base)}" height="0" opacity="0">` +
+          `<animate attributeName="opacity" from="0" to="1" begin="${begin}s" dur="${n(grow * 0.45)}s" fill="freeze"/>` +
+          `<animate attributeName="y" from="${n(base)}" to="${n(base - h)}" begin="${begin}s" ` +
+          `dur="${grow}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="${ease}"/>` +
+          `<animate attributeName="height" from="0" to="${n(h)}" begin="${begin}s" ` +
+          `dur="${grow}s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="${ease}"/>` +
+          pulse +
           `</rect>`,
       );
     });
+
+    // Sweep highlight after the last bar lands — sells the “animated graphic”.
+    const sweepBegin = n(start + Math.max(0, weeks.length - 1) * T.perBar + grow * 0.35);
+    const sweepId = `sweep${this.clipId++}`;
+    this.defs.push(
+      `<linearGradient id="${sweepId}" x1="0" y1="0" x2="1" y2="0">` +
+        `<stop offset="0%" stop-color="${theme.cyan}" stop-opacity="0"/>` +
+        `<stop offset="45%" stop-color="${theme.cyan}" stop-opacity="0.28"/>` +
+        `<stop offset="100%" stop-color="${theme.cyan}" stop-opacity="0"/>` +
+        `</linearGradient>`,
+    );
+    this.parts.push(
+      `<rect x="${PAD_X}" y="${n(base - GRAPH_H)}" width="${n(inner * 0.18)}" height="${GRAPH_H}" ` +
+        `fill="url(#${sweepId})" opacity="0">` +
+        `<animate attributeName="opacity" values="0;1;0" begin="${sweepBegin}s" dur="1.1s" fill="freeze"/>` +
+        `<animate attributeName="x" from="${PAD_X}" to="${n(W - PAD_X - inner * 0.18)}" ` +
+        `begin="${sweepBegin}s" dur="1.1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="${ease}"/>` +
+        `</rect>`,
+    );
 
     // axis: the month abbreviation on the week where it starts
     const axisY = base + AXIS_H;
@@ -369,7 +422,7 @@ class Session {
       );
     });
 
-    this.t = n(start + weeks.length * T.perBar + 0.5);
+    this.t = n(sweepBegin + 1.2);
     this.y = axisY + LH;
     return this;
   }
@@ -401,7 +454,10 @@ class Session {
 <style>
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 .cursor{animation:blink 1.06s steps(1) infinite}
-@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  .cursor{animation:none}
+  .bar animate,.bar set,rect[fill^="url"] animate{display:none}
+}
 text{white-space:pre;dominant-baseline:alphabetic}
 </style>
 <defs>
@@ -435,6 +491,17 @@ function buildSVG(theme, data) {
       [`${key}:`, theme.blue],
       [' '.repeat(pad - key.length + 2), theme.dim],
       [value, theme.fg],
+    ]);
+  }
+  s.blank();
+
+  s.command('ls ~/projects');
+  const namePad = Math.max(...PROFILE.projects.map(([name]) => name.length));
+  for (const [name, blurb] of PROFILE.projects) {
+    s.out([
+      [name, theme.cyan],
+      [' '.repeat(namePad - name.length + 2), theme.dim],
+      [blurb, theme.dim],
     ]);
   }
   s.blank();
