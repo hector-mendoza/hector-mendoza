@@ -32,7 +32,6 @@ const PROFILE = {
   ],
   // Shown by `ls ~/projects` — keep names short so lines fit the terminal.
   projects: [
-    ['orbit', 'agents that revolve around your repo'],
     ['portfolio', 'personal site'],
     ['giphynator', 'random GIF discovery (Next.js)'],
     ['vibe-theme', '7 dark themes for VS Code/Cursor'],
@@ -42,16 +41,22 @@ const PROFILE = {
   ],
 };
 
-/** Orbit cloud crew — the fluffy mascots in `cat ~/motd`. */
-const ORBIT_MOTD = [
-  [['    ·  ·  ·  orbit  ·  ·  ·', 'dim']],
-  [['        .-~~~-.   .-~~-.', 'cyan']],
-  [['      .\' ◕   ◕ \'. ( • _ • )', 'cyan']],
-  [['     /    ~    \\   ~ ~ ~', 'blue']],
-  [['      \\  nimbus /  stratus', 'green']],
-  [['       \'-.___.-\'', 'cyan']],
-  [['     ☁  "we live in the cloud now"', 'yellow']],
-  [['      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 'blue']],
+/** Random wow art — shows up in `cat ~/motd`. */
+const MOTD_ART = [
+  [['                    *', 'dim']],
+  [['                   * *', 'dim']],
+  [['              *          *', 'dim']],
+  [['                      /\\', 'yellow']],
+  [['                     /  \\', 'yellow']],
+  [['                    | WOW |', 'green']],
+  [['                    |    |', 'cyan']],
+  [['                   /|    |\\', 'cyan']],
+  [['                  / |    | \\', 'blue']],
+  [['                    |    |', 'cyan']],
+  [['                   /      \\', 'cyan']],
+  [['                  /________\\', 'blue']],
+  [['                     |  |', 'orange']],
+  [['                    /    \\', 'orange']],
 ];
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -502,7 +507,7 @@ function buildSVG(theme, data) {
   const nf = new Intl.NumberFormat('en-US');
 
   s.command('cat ~/motd')
-    .ascii(ORBIT_MOTD)
+    .ascii(MOTD_ART)
     .blank();
 
   s.command('whoami')
