@@ -27,12 +27,12 @@ text{white-space:pre;dominant-baseline:alphabetic}
 <g clip-path="url(#t0)"><text x="172.2" y="69" fill="#fafafa">cat ~/motd</text></g>
 <g opacity="0"><set attributeName="opacity" to="1" begin="0.35s"/><set attributeName="opacity" to="0" begin="0.67s"/><rect y="58" width="7.8" height="15" fill="#2dd4bf" x="172.2"><animate attributeName="x" from="172.2" to="250.2" begin="0.35s" dur="0.32s" fill="freeze"/></rect></g>
 <g opacity="0"><set attributeName="opacity" to="1" begin="1.01s"/><text y="90"><tspan x="24" fill="#71717a">    ·  ·  ·  orbit  ·  ·  ·</tspan></text></g>
-<g opacity="0"><set attributeName="opacity" to="1" begin="1.1s"/><text y="111"><tspan x="24" fill="#2dd4bf">         ___</tspan></text></g>
-<g opacity="0"><set attributeName="opacity" to="1" begin="1.19s"/><text y="132"><tspan x="24" fill="#2dd4bf">        /   \</tspan></text></g>
-<g opacity="0"><set attributeName="opacity" to="1" begin="1.28s"/><text y="153"><tspan x="24" fill="#4ade80">    @──│ ◕ ◡ ◕ │──○</tspan></text></g>
-<g opacity="0"><set attributeName="opacity" to="1" begin="1.37s"/><text y="174"><tspan x="24" fill="#2dd4bf">        \___/</tspan></text></g>
-<g opacity="0"><set attributeName="opacity" to="1" begin="1.46s"/><text y="195"><tspan x="24" fill="#71717a">           \</tspan></text></g>
-<g opacity="0"><set attributeName="opacity" to="1" begin="1.55s"/><text y="216"><tspan x="24" fill="#fbbf24">            @  "send help, spinning since npm install"</tspan></text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.1s"/><text y="111"><tspan x="24" fill="#2dd4bf">        .-~~~-.   .-~~-.</tspan></text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.19s"/><text y="132"><tspan x="24" fill="#2dd4bf">      .' ◕   ◕ '. ( • _ • )</tspan></text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.28s"/><text y="153"><tspan x="24" fill="#38bdf8">     /    ~    \   ~ ~ ~</tspan></text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.37s"/><text y="174"><tspan x="24" fill="#4ade80">      \  nimbus /  stratus</tspan></text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.46s"/><text y="195"><tspan x="24" fill="#2dd4bf">       '-.___.-'</tspan></text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.55s"/><text y="216"><tspan x="24" fill="#fbbf24">     ☁  "we live in the cloud now"</tspan></text></g>
 <g opacity="0"><set attributeName="opacity" to="1" begin="1.64s"/><text y="237"><tspan x="24" fill="#38bdf8">      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</tspan></text></g>
 <g opacity="0"><set attributeName="opacity" to="1" begin="1.87s"/><text x="24" y="269.55"><tspan fill="#4ade80">hector-mendoza</tspan><tspan fill="#71717a"> </tspan><tspan fill="#2dd4bf">~</tspan><tspan fill="#71717a"> $</tspan></text></g>
 <g clip-path="url(#t1)"><text x="172.2" y="269.55" fill="#fafafa">whoami</text></g>

@@ -42,15 +42,15 @@ const PROFILE = {
   ],
 };
 
-/** Orbit mascots — the little crew that shows up in `cat ~/motd`. */
+/** Orbit cloud crew — the fluffy mascots in `cat ~/motd`. */
 const ORBIT_MOTD = [
   [['    ·  ·  ·  orbit  ·  ·  ·', 'dim']],
-  [['         ___', 'cyan']],
-  [['        /   \\', 'cyan']],
-  [['    @──│ ◕ ◡ ◕ │──○', 'green']],
-  [['        \\___/', 'cyan']],
-  [['           \\', 'dim']],
-  [['            @  "send help, spinning since npm install"', 'yellow']],
+  [['        .-~~~-.   .-~~-.', 'cyan']],
+  [['      .\' ◕   ◕ \'. ( • _ • )', 'cyan']],
+  [['     /    ~    \\   ~ ~ ~', 'blue']],
+  [['      \\  nimbus /  stratus', 'green']],
+  [['       \'-.___.-\'', 'cyan']],
+  [['     ☁  "we live in the cloud now"', 'yellow']],
   [['      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 'blue']],
 ];
 
