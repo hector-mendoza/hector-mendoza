@@ -32,6 +32,7 @@ const PROFILE = {
   ],
   // Shown by `ls ~/projects` — keep names short so lines fit the terminal.
   projects: [
+    ['orbit', 'agents that revolve around your repo'],
     ['portfolio', 'personal site'],
     ['giphynator', 'random GIF discovery (Next.js)'],
     ['vibe-theme', '7 dark themes for VS Code/Cursor'],
@@ -40,6 +41,18 @@ const PROFILE = {
     ['agent-ready', 'robots.txt, llms.txt & sitemaps'],
   ],
 };
+
+/** Orbit mascots — the little crew that shows up in `cat ~/motd`. */
+const ORBIT_MOTD = [
+  [['    ·  ·  ·  orbit  ·  ·  ·', 'dim']],
+  [['         ___', 'cyan']],
+  [['        /   \\', 'cyan']],
+  [['    @──│ ◕ ◡ ◕ │──○', 'green']],
+  [['        \\___/', 'cyan']],
+  [['           \\', 'dim']],
+  [['            @  "send help, spinning since npm install"', 'yellow']],
+  [['      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 'blue']],
+];
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
@@ -342,6 +355,14 @@ class Session {
     return this;
   }
 
+  /** Multi-line ASCII art. Each line is an array of [text, colour] spans. */
+  ascii(lines) {
+    for (const spans of lines) {
+      this.out(spans.map(([text, key]) => [text, this.theme[key] ?? this.theme.fg]));
+    }
+    return this;
+  }
+
   /** The graph: one bar per week, growing left→right with ease-out + fade. */
   graph(weeks) {
     const { theme } = this;
@@ -479,6 +500,10 @@ function buildSVG(theme, data) {
   const { total, streak, active, weeks } = data;
   const s = new Session(theme);
   const nf = new Intl.NumberFormat('en-US');
+
+  s.command('cat ~/motd')
+    .ascii(ORBIT_MOTD)
+    .blank();
 
   s.command('whoami')
     .out([[PROFILE.name, theme.fg]])
