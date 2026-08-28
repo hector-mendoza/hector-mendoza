@@ -32,7 +32,6 @@ const PROFILE = {
   ],
   // Shown by `ls ~/projects` — keep names short so lines fit the terminal.
   projects: [
-    ['orbit', 'agents that revolve around your repo'],
     ['portfolio', 'personal site'],
     ['giphynator', 'random GIF discovery (Next.js)'],
     ['vibe-theme', '7 dark themes for VS Code/Cursor'],
@@ -42,16 +41,11 @@ const PROFILE = {
   ],
 };
 
-/** Orbit cloud crew — the fluffy mascots in `cat ~/motd`. */
-const ORBIT_MOTD = [
-  [['    ·  ·  ·  orbit  ·  ·  ·', 'dim']],
-  [['        .-~~~-.   .-~~-.', 'cyan']],
-  [['      .\' ◕   ◕ \'. ( • _ • )', 'cyan']],
-  [['     /    ~    \\   ~ ~ ~', 'blue']],
-  [['      \\  nimbus /  stratus', 'green']],
-  [['       \'-.___.-\'', 'cyan']],
-  [['     ☁  "we live in the cloud now"', 'yellow']],
-  [['      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~', 'blue']],
+/** Minimal wow — three lines in `cat ~/motd`. */
+const MOTD_ART = [
+  [['  __   ___  __', 'dim']],
+  [['  \\ \\ / _ \\/ /', 'purple']],
+  [['   \\ V  __/\\_\\', 'blue']],
 ];
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -62,42 +56,41 @@ const USER = PROFILE.host
   : PROFILE.login.toLowerCase();
 
 // ─────────────────────────────────────────────────────────────────────
-// Modern zinc + emerald (Geist / Linear–inspired). Near-black surfaces,
-// tight neutrals, one sharp accent — less pastel than Nord/Tokyo Night.
+// Catppuccin Mocha / Latte — popular modern terminal palette.
 // ─────────────────────────────────────────────────────────────────────
 
 const THEMES = {
   dark: {
     name: 'dark',
-    bg: '#09090b',
-    chrome: '#18181b',
-    border: '#27272a',
-    fg: '#fafafa',
-    dim: '#71717a',
-    green: '#4ade80',
-    cyan: '#2dd4bf',
-    blue: '#38bdf8',
-    purple: '#2dd4bf', // cursor / accent — teal, not violet
-    yellow: '#fbbf24',
-    orange: '#fb923c',
-    dot: ['#f43f5e', '#fbbf24', '#4ade80'],
-    ramp: ['#27272a', '#3f3f46', '#0d9488', '#14b8a6', '#2dd4bf'],
+    bg: '#1e1e2e',
+    chrome: '#181825',
+    border: '#313244',
+    fg: '#cdd6f4',
+    dim: '#6c7086',
+    green: '#a6e3a1',
+    cyan: '#94e2d5',
+    blue: '#89b4fa',
+    purple: '#cba6f7',
+    yellow: '#f9e2af',
+    orange: '#fab387',
+    dot: ['#f38ba8', '#f9e2af', '#a6e3a1'],
+    ramp: ['#313244', '#45475a', '#585b70', '#89b4fa', '#cba6f7'],
   },
   light: {
     name: 'light',
-    bg: '#fafafa',
-    chrome: '#f4f4f5',
-    border: '#e4e4e7',
-    fg: '#18181b',
-    dim: '#71717a',
-    green: '#16a34a',
-    cyan: '#0f766e',
-    blue: '#0284c7',
-    purple: '#0d9488',
-    yellow: '#ca8a04',
-    orange: '#ea580c',
-    dot: ['#e11d48', '#ca8a04', '#16a34a'],
-    ramp: ['#e4e4e7', '#a1a1aa', '#0f766e', '#0d9488', '#14b8a6'],
+    bg: '#eff1f5',
+    chrome: '#e6e9ef',
+    border: '#ccd0da',
+    fg: '#4c4f69',
+    dim: '#9ca0b0',
+    green: '#40a02b',
+    cyan: '#179299',
+    blue: '#1e66f5',
+    purple: '#8839ef',
+    yellow: '#df8e1d',
+    orange: '#fe640b',
+    dot: ['#d20f39', '#df8e1d', '#40a02b'],
+    ramp: ['#ccd0da', '#acb0be', '#8c8fa1', '#1e66f5', '#8839ef'],
   },
 };
 
@@ -502,7 +495,7 @@ function buildSVG(theme, data) {
   const nf = new Intl.NumberFormat('en-US');
 
   s.command('cat ~/motd')
-    .ascii(ORBIT_MOTD)
+    .ascii(MOTD_ART)
     .blank();
 
   s.command('whoami')
